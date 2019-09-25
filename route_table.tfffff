@@ -1,0 +1,24 @@
+# dev_public
+resource "aws_route_table" "dev_public" {
+vpc_id            = "vpc-06b39d33f177a947f"
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "igw-0f968521e2e29cbfc"
+  }
+
+  tags {
+    Name = "user10_dev-public"
+  }
+}
+
+resource "aws_route_table_association" "dev_public_1a" {
+  subnet_id      = "subnet-0b371aea723b5f4be"
+  route_table_id = "rtb-0334c87a6ca8ab225"
+}
+
+resource "aws_route_table_association" "dev_public_1c" {
+  subnet_id      = "subnet-04bcd812351a4ee0b"
+  route_table_id = "rtb-0334c87a6ca8ab225"
+}
+
